@@ -12,11 +12,7 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 
-smoothiefroot_response = requests.get(
-    "https://my.smoothiefroot.com/api/fruit/watermelon"
-)
 
-st.text(smoothiefroot_response.text)
 
 data = session.table("smoothies.public.orders")
 # st.dataframe(data)
@@ -42,3 +38,8 @@ if orders_filled:
 else:
     st.success('No pending orders')
 
+
+smoothiefroot_response = requests.get(
+    "https://my.smoothiefroot.com/api/fruit/watermelon"
+)
+st.text(smoothiefroot_response.json()
