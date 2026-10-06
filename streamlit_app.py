@@ -11,9 +11,12 @@ st.write("Orders that need to be filled.")
 cnx = st.connection("snowflake")
 session = cnx.session()
 
-smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
-st.text(smoothiefroot_response)
 
+smoothiefroot_response = requests.get(
+    "https://my.smoothiefroot.com/api/fruit/watermelon"
+)
+
+st.text(smoothiefroot_response.text)
 
 data = session.table("smoothies.public.orders")
 # st.dataframe(data)
@@ -39,20 +42,3 @@ if orders_filled:
 else:
     st.success('No pending orders')
 
-    #     # Update the rows that were checked
-    # for _, order in editable_df.iterrows():
-
-    #     if order["ORDER_FILLED"]:
-    #         session.sql("""
-    #             UPDATE smoothies.public.orders
-    #             SET ORDER_FILLED = TRUE
-    #         """).collect()
-        
-
-# st.write(editable_df)
-
-
-# if editable_df:
-    
-# st.dataframe(orders_filled)
-# st.write(order_filled)
