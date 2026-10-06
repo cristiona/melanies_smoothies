@@ -33,7 +33,7 @@ if ingredient_list:
 
     for fruit in ingredient_list:
         ingredients_string += fruit + " "
-        st.subheader(fruit + 'Nutrition Information')
+        st.subheader(fruit + ' Nutrition Information')
         
 
     # Call the Smoothie API
